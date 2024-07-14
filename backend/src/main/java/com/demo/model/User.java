@@ -22,7 +22,7 @@ public class User {
 	private long mobile;
 	@Column(unique = true, nullable = false)
 	private String userName;
-	@Column(nullable = false)
+	@Column(nullable = false)			
 	private String password;
 
 	@Override

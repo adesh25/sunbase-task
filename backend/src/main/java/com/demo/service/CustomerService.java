@@ -12,42 +12,41 @@ import com.demo.model.Customer;
 public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
-	
+
 	public Customer addCustomer(Customer customer) {
 		return customerRepository.save(customer);
 	}
+
 	public Customer findCustomerById(int id) {
-        return customerRepository.findById(id).orElse(null);
-    }
-	
-	public List<Customer> findAllCustomer(){
+		return customerRepository.findById(id).orElse(null);
+	}
+
+	public List<Customer> findAllCustomer() {
 		List<Customer> customers = customerRepository.findAll();
-		if (customers != null && customers.size()>0) {
+		if (customers != null && customers.size() > 0) {
 			return customers;
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
+
 	public Customer deleteCustomer(Integer id) {
 		if (id != null) {
 			Customer customerToBeDeleted = findCustomerById(id);
 			customerRepository.deleteById(id);
 			return customerToBeDeleted;
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
+
 	public Customer updateCustomer(Customer customer) {
-		if (customer != null && customer.getId() !=0) {
+		if (customer != null && customer.getId() != 0) {
 			Optional<Customer> optional = customerRepository.findById(customer.getId());
 			if (optional.isPresent()) {
 				Customer existCustomer = optional.get();
-				existCustomer.setFirst_name(customer.getFirst_name());
-				existCustomer.setLast_name(customer.getLast_name());
+				existCustomer.setFirstName(customer.getFirstName());
+				existCustomer.setLastName(customer.getLastName());
 				existCustomer.setStreet(customer.getStreet());
 				existCustomer.setAddress(customer.getAddress());
 				existCustomer.setCity(customer.getCity());
@@ -58,5 +57,21 @@ public class CustomerService {
 			}
 		}
 		return null;
+	}
+
+	public Customer findByEmail(String email) {
+		return customerRepository.findByEmail(email);
+	}
+
+	public Customer findByPhone(String phone) {
+		return customerRepository.findByPhone(phone);
+	}
+
+	public List<Customer> searchByFirstName(String firstName) {
+		return customerRepository.findByFirstName(firstName);
+	}
+
+	public List<Customer> searchByCity(String city) {
+		return customerRepository.findByCity(city);
 	}
 }
