@@ -42,7 +42,7 @@ customer-management-system/
 - Maven
 # Backend Setup
 1.Create a Spring Boot starter project.
-2.Set the project name and package (e.g., Name: Sb1, Package: com.demo).
+2.Set the project name  (e.g., Name: Sb1, Package: com.demo).
     
  # Add Dependency
    1.Spring Boot DevTools
