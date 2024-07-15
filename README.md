@@ -5,6 +5,34 @@
 ## Project Description
 
 The Customer Management System allows users to create, update, delete, and view customer information. It includes a login screen for authentication, a customer list screen with pagination, sorting, and searching, and a form to add new customers.
+## Project Structure
+customer-management-system/
+├── backend/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   ├── com/example/customer/
+│   │   │   │   │   ├── controller/
+│   │   │   │   │   ├── model/
+│   │   │   │   │   ├── repository/
+│   │   │   │   │   ├── service/
+│   │   │   │   │   └── CustomerManagementApplication.java
+│   │   │   ├── resources/
+│   │   │   │   └── application.properties
+│   └── pom.xml
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Login.js
+│   │   │   ├── CustomerList.js
+│   │   │   ├── CustomerForm.js
+│   │   ├── App.js
+│   │   ├── index.js
+│   ├── package.json
+└── README.md
+
+
 
 ## Installation
 
@@ -66,12 +94,34 @@ spring.jpa.properties.hibernate.forma
 
       
   ## API Cheking
-     PostMan App or any other
+     Postman Application
+     or any other
+     
 
 ## Build and run the backend:
      mvn spring-boot:run
-
-  
-
+     
+## Frontend Setup
+  1. Navigate to the frontend directory:
+     cd ../frontend
+  2.Install the dependencies and start the frontend server:
+     npm install
+     npm start
+##   Usage
+1. Open your browser and go to http://localhost:3000.
+2.Log in using the credentials specified in the backend (default: test@sunbasedata.com / Test@123).
+3.Use the interface to manage customers:
+      Login Screen: Enter your credentials to log in.
+      Customer List Screen: View, search, and sort the list of customers. Use the Sync button 
+      to fetch customer data from the remote API.
+       Add a New Customer: Fill out the form to add a new customer.
+  ## Features
+    JWT Authentication
+    Create, update, delete, and view customer data
+    Pagination, sorting, and searching for customer list
+## Technologies Used
+    Backend: Spring Boot, MySQL, Maven
+    Frontend: React, HTML, CSS, JavaScript
+    Authentication: JWT
       
    
